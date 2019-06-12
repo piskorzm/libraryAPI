@@ -37,7 +37,60 @@ public class Book {
     @ElementCollection
     private List<String> authors = new ArrayList<>();
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public Long getPublishedDate() {
+        return publishedDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public String getPreviewLink() {
+        return previewLink;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
     @ElementCollection
+
     private List<String> categories = new ArrayList<>();
 
     @JsonProperty("volumeInfo")
