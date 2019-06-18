@@ -1,6 +1,6 @@
 package app.library.controller;
 
-import app.library.domain.Book;
+import app.library.types.Book;
 import app.library.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

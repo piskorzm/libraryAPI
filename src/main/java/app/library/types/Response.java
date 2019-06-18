@@ -1,9 +1,8 @@
-package app.library.domain;
+package app.library.types;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Id;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

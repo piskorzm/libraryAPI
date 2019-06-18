@@ -1,7 +1,7 @@
 package app.library;
 
-import app.library.domain.Book;
-import app.library.domain.Response;
+import app.library.types.Book;
+import app.library.types.Response;
 import app.library.service.BookService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

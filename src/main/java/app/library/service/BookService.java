@@ -1,6 +1,6 @@
 package app.library.service;
 
-import app.library.domain.Book;
+import app.library.types.Book;
 import app.library.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
