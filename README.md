@@ -1,11 +1,12 @@
 # libraryAPI
-Books collection API in Java Spring
+Books collection API in Java Spring. Technologies used: Spring Boot, Jackson, Maven.
 
 Building 
  To build the application use following command: 'mvn clean package'
  
 Running 
  To load local books from JSON to the API run: 'java -jar .\target\library-0.0.1.jar' 
+ 
  To load books from google api use: 'java -jar .\target\library-0.0.1.jar <google api url for example: https://www.googleapis.com/books/v1/volumes?q=java&maxResults=4>' 
  
 Access
