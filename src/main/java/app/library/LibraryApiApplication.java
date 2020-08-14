@@ -9,9 +9,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 @SpringBootApplication
@@ -23,16 +25,34 @@ public class LibraryApiApplication {
 
 	@Bean
 	CommandLineRunner runner(BookService bookService) {
+
+
 		return args -> {
 			ObjectMapper mapper = new ObjectMapper();
-			TypeReference<List<Book>> typeReference = new TypeReference<List<Book>>(){};
-			InputStream inputStream = TypeReference.class.getResourceAsStream("/json/books.json");
-			try {
-				Response response = mapper.readValue(inputStream, Response.class);
-				bookService.save(response.items);
-				System.out.println("Books loaded");
-			} catch (IOException e) {
-				System.out.println("Books failed to load" + e.getMessage());
+
+			if (args.length == 1) {
+				URL url = new URL(args[0]);
+				System.out.println("Loading books from: " + args[0]);
+
+				try {
+					Response response = mapper.readValue(url, Response.class);
+					bookService.save(response.items);
+					System.out.println("Books loaded");
+				} catch (IOException e) {
+					System.out.println("Books failed to load" + e.getMessage());
+				}
+			}
+			else {
+				System.out.println("Loading local books");
+				InputStream inputStream = TypeReference.class.getResourceAsStream("/json/books.json");
+
+				try {
+					Response response = mapper.readValue(inputStream, Response.class);
+					bookService.save(response.items);
+					System.out.println("Books loaded");
+				} catch (IOException e) {
+					System.out.println("Books failed to load" + e.getMessage());
+				}
 			}
 		};
 	}
